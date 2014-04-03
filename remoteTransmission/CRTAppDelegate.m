@@ -7,12 +7,14 @@
 //
 
 #import "CRTAppDelegate.h"
+#import "CRTTransmissionController.h"
 
 @implementation CRTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    // TODO: Allow the user to choose the host and port.
+//    [[CRTTransmissionController sharedController] setHost:@"192.168.1.68" port:9091];
     return YES;
 }
 							

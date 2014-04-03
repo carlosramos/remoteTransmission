@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0742D4E018E71336009DEB4F /* NSString+crt_CorrectURLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 0742D4DF18E71336009DEB4F /* NSString+crt_CorrectURLEncoding.m */; };
+		075C1F0618E9D4EB00699408 /* CRTDisconnectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 075C1F0518E9D4EB00699408 /* CRTDisconnectedViewController.m */; };
+		075D411F18E7275E001937AA /* CRTSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 075D411E18E7275E001937AA /* CRTSettingsViewController.m */; };
 		07964F2118E59E3100D0842A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07964F2018E59E3100D0842A /* Foundation.framework */; };
 		07964F2318E59E3100D0842A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07964F2218E59E3100D0842A /* CoreGraphics.framework */; };
 		07964F2518E59E3100D0842A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07964F2418E59E3100D0842A /* UIKit.framework */; };
@@ -14,13 +17,16 @@
 		07964F2D18E59E3100D0842A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07964F2C18E59E3100D0842A /* main.m */; };
 		07964F3118E59E3100D0842A /* CRTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07964F3018E59E3100D0842A /* CRTAppDelegate.m */; };
 		07964F3418E59E3100D0842A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07964F3218E59E3100D0842A /* Main.storyboard */; };
-		07964F3718E59E3100D0842A /* CRTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07964F3618E59E3100D0842A /* CRTViewController.m */; };
 		07964F3918E59E3100D0842A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07964F3818E59E3100D0842A /* Images.xcassets */; };
 		07964F4018E59E3100D0842A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07964F3F18E59E3100D0842A /* XCTest.framework */; };
 		07964F4118E59E3100D0842A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07964F2018E59E3100D0842A /* Foundation.framework */; };
 		07964F4218E59E3100D0842A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07964F2418E59E3100D0842A /* UIKit.framework */; };
 		07964F4A18E59E3100D0842A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07964F4818E59E3100D0842A /* InfoPlist.strings */; };
 		07964F4C18E59E3100D0842A /* remoteTransmissionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 07964F4B18E59E3100D0842A /* remoteTransmissionTests.m */; };
+		07964F5718E5B11300D0842A /* CRTAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 07964F5618E5B11300D0842A /* CRTAuthentication.m */; };
+		07964F5A18E5B2AD00D0842A /* CRTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07964F5918E5B2AD00D0842A /* CRTLoginViewController.m */; };
+		07964F5D18E5B2E900D0842A /* CRTTransmissionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07964F5C18E5B2E900D0842A /* CRTTransmissionController.m */; };
+		079E7A3D18E5F1580007D34F /* CRTTorrentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 079E7A3C18E5F1580007D34F /* CRTTorrentListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +40,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0742D4DE18E71336009DEB4F /* NSString+crt_CorrectURLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+crt_CorrectURLEncoding.h"; sourceTree = "<group>"; };
+		0742D4DF18E71336009DEB4F /* NSString+crt_CorrectURLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+crt_CorrectURLEncoding.m"; sourceTree = "<group>"; };
+		075C1F0418E9D4EB00699408 /* CRTDisconnectedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRTDisconnectedViewController.h; sourceTree = "<group>"; };
+		075C1F0518E9D4EB00699408 /* CRTDisconnectedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRTDisconnectedViewController.m; sourceTree = "<group>"; };
+		075D411D18E7275E001937AA /* CRTSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRTSettingsViewController.h; sourceTree = "<group>"; };
+		075D411E18E7275E001937AA /* CRTSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRTSettingsViewController.m; sourceTree = "<group>"; };
 		07964F1D18E59E3100D0842A /* remoteTransmission.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = remoteTransmission.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07964F2018E59E3100D0842A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		07964F2218E59E3100D0842A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -45,14 +57,20 @@
 		07964F2F18E59E3100D0842A /* CRTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRTAppDelegate.h; sourceTree = "<group>"; };
 		07964F3018E59E3100D0842A /* CRTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRTAppDelegate.m; sourceTree = "<group>"; };
 		07964F3318E59E3100D0842A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		07964F3518E59E3100D0842A /* CRTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRTViewController.h; sourceTree = "<group>"; };
-		07964F3618E59E3100D0842A /* CRTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRTViewController.m; sourceTree = "<group>"; };
 		07964F3818E59E3100D0842A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		07964F3E18E59E3100D0842A /* remoteTransmissionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = remoteTransmissionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		07964F3F18E59E3100D0842A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		07964F4718E59E3100D0842A /* remoteTransmissionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "remoteTransmissionTests-Info.plist"; sourceTree = "<group>"; };
 		07964F4918E59E3100D0842A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		07964F4B18E59E3100D0842A /* remoteTransmissionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = remoteTransmissionTests.m; sourceTree = "<group>"; };
+		07964F5518E5B11300D0842A /* CRTAuthentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRTAuthentication.h; sourceTree = "<group>"; };
+		07964F5618E5B11300D0842A /* CRTAuthentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRTAuthentication.m; sourceTree = "<group>"; };
+		07964F5818E5B2AD00D0842A /* CRTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRTLoginViewController.h; sourceTree = "<group>"; };
+		07964F5918E5B2AD00D0842A /* CRTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRTLoginViewController.m; sourceTree = "<group>"; };
+		07964F5B18E5B2E900D0842A /* CRTTransmissionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRTTransmissionController.h; sourceTree = "<group>"; };
+		07964F5C18E5B2E900D0842A /* CRTTransmissionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRTTransmissionController.m; sourceTree = "<group>"; };
+		079E7A3B18E5F1580007D34F /* CRTTorrentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRTTorrentListViewController.h; sourceTree = "<group>"; };
+		079E7A3C18E5F1580007D34F /* CRTTorrentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRTTorrentListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +133,13 @@
 				07964F2F18E59E3100D0842A /* CRTAppDelegate.h */,
 				07964F3018E59E3100D0842A /* CRTAppDelegate.m */,
 				07964F3218E59E3100D0842A /* Main.storyboard */,
-				07964F3518E59E3100D0842A /* CRTViewController.h */,
-				07964F3618E59E3100D0842A /* CRTViewController.m */,
+				079E7A3E18E5F29E0007D34F /* View Controllers */,
+				07964F5518E5B11300D0842A /* CRTAuthentication.h */,
+				07964F5618E5B11300D0842A /* CRTAuthentication.m */,
+				07964F5B18E5B2E900D0842A /* CRTTransmissionController.h */,
+				07964F5C18E5B2E900D0842A /* CRTTransmissionController.m */,
+				0742D4DE18E71336009DEB4F /* NSString+crt_CorrectURLEncoding.h */,
+				0742D4DF18E71336009DEB4F /* NSString+crt_CorrectURLEncoding.m */,
 				07964F3818E59E3100D0842A /* Images.xcassets */,
 				07964F2718E59E3100D0842A /* Supporting Files */,
 			);
@@ -150,6 +173,21 @@
 				07964F4818E59E3100D0842A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		079E7A3E18E5F29E0007D34F /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				079E7A3B18E5F1580007D34F /* CRTTorrentListViewController.h */,
+				079E7A3C18E5F1580007D34F /* CRTTorrentListViewController.m */,
+				075C1F0418E9D4EB00699408 /* CRTDisconnectedViewController.h */,
+				075C1F0518E9D4EB00699408 /* CRTDisconnectedViewController.m */,
+				07964F5818E5B2AD00D0842A /* CRTLoginViewController.h */,
+				07964F5918E5B2AD00D0842A /* CRTLoginViewController.m */,
+				075D411D18E7275E001937AA /* CRTSettingsViewController.h */,
+				075D411E18E7275E001937AA /* CRTSettingsViewController.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,8 +289,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				07964F3118E59E3100D0842A /* CRTAppDelegate.m in Sources */,
+				079E7A3D18E5F1580007D34F /* CRTTorrentListViewController.m in Sources */,
+				07964F5D18E5B2E900D0842A /* CRTTransmissionController.m in Sources */,
 				07964F2D18E59E3100D0842A /* main.m in Sources */,
-				07964F3718E59E3100D0842A /* CRTViewController.m in Sources */,
+				0742D4E018E71336009DEB4F /* NSString+crt_CorrectURLEncoding.m in Sources */,
+				07964F5A18E5B2AD00D0842A /* CRTLoginViewController.m in Sources */,
+				07964F5718E5B11300D0842A /* CRTAuthentication.m in Sources */,
+				075D411F18E7275E001937AA /* CRTSettingsViewController.m in Sources */,
+				075C1F0618E9D4EB00699408 /* CRTDisconnectedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +501,7 @@
 				07964F5118E59E3100D0842A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		07964F5218E59E3100D0842A /* Build configuration list for PBXNativeTarget "remoteTransmissionTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +510,7 @@
 				07964F5418E59E3100D0842A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,9 +7,11 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "CRTTransmissionController.h"
 
 @interface remoteTransmissionTests : XCTestCase
-
+@property (nonatomic, strong) CRTTransmissionController *transmissionController;
+@property (nonatomic, copy) NSString *expectedAuthString;
 @end
 
 @implementation remoteTransmissionTests
@@ -18,6 +20,10 @@
 {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    self.transmissionController = [[CRTTransmissionController alloc] init];
+    self.transmissionController.authentication.username = @"carlos";
+    self.transmissionController.authentication.password = @"hello";
+    self.expectedAuthString = [NSString stringWithFormat:@"Basic %@", [self.transmissionController.authentication base64Authentication]];
 }
 
 - (void)tearDown
@@ -26,9 +32,5 @@
     [super tearDown];
 }
 
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
-}
 
 @end
