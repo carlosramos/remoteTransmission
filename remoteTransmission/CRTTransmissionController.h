@@ -50,17 +50,32 @@ extern const NSInteger CRTTransmissionControllerErrorMalformedResponse;
 /** Checks if the user has the BitTorrent protocol port open in the computer with the transmission client.
  @param callback Block called when the response from the server is received. If there is an error, it is returned
                  in the error parameter and the isPortOpen parameter is set to NO. */
-- (void)isPortOpen:(void (^)(BOOL isPortOpen, NSError *__autoreleasing error))callback;
+- (void)isPortOpen:(void (^)(BOOL isPortOpen, NSError *error))callback;
 
 /** Get the current list of torrents (active or inactive) running on the Transmission client.
  @param callback Block called when the list is obtained. If there is an error, it is returned in the error parameter and
                  the list parameter is set to nil.
  */
-- (void)torrentList:(void (^)(NSArray *list, NSError *__autoreleasing error))callback;
+- (void)torrentList:(void (^)(NSArray *list, NSError *error))callback;
 
 /** Get various global session statistics, like download/upload speed.
  @param callback Block called when the stats are obtained. If there is an error, it is returned in the error parameter and
                  the stats parameter is set to nil.
  */
-- (void)sessionStats:(void (^)(NSDictionary *stats, NSError *__autoreleasing error))callback;
+- (void)sessionStats:(void (^)(NSDictionary *stats, NSError *error))callback;
+
+/** Gets the current speed limits.
+ @param callback Block called when the data is retrieved. downloadLimit and uploadLimit are 0 if there's no
+                 limit currently set. If there's an error, it is returned in the error parameter and both
+                 downloadLimit and uploadLimit are set to 0.
+ */
+- (void)getSpeedLimits:(void (^)(long downloadLimit, long uploadLimit, NSError *error))callback;
+
+/** Sets the current speed limits.
+ @param downloadLimit The download speed limit, or 0 for unlimited.
+ @param uploadLimit The upload speed limit, or 0 for unlimited.
+ @param callback Block called when the data is sent to the server. If there's an error, it is returned in the
+                 error parameter.
+ */
+- (void)setDownloadLimit:(long)downloadLimit uploadLimit:(long)uploadLimit withCompletion:(void (^)(NSError *error))callback;
 @end

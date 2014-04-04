@@ -13,8 +13,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // TODO: Allow the user to choose the host and port.
-//    [[CRTTransmissionController sharedController] setHost:@"192.168.1.68" port:9091];
     return YES;
 }
 							

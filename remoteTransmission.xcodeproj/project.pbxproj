@@ -10,6 +10,7 @@
 		0742D4E018E71336009DEB4F /* NSString+crt_CorrectURLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 0742D4DF18E71336009DEB4F /* NSString+crt_CorrectURLEncoding.m */; };
 		075C1F0618E9D4EB00699408 /* CRTDisconnectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 075C1F0518E9D4EB00699408 /* CRTDisconnectedViewController.m */; };
 		075D411F18E7275E001937AA /* CRTSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 075D411E18E7275E001937AA /* CRTSettingsViewController.m */; };
+		078589BB18EEE7760082B615 /* CRTSpeedsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 078589BA18EEE7760082B615 /* CRTSpeedsViewController.m */; };
 		07964F2118E59E3100D0842A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07964F2018E59E3100D0842A /* Foundation.framework */; };
 		07964F2318E59E3100D0842A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07964F2218E59E3100D0842A /* CoreGraphics.framework */; };
 		07964F2518E59E3100D0842A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07964F2418E59E3100D0842A /* UIKit.framework */; };
@@ -46,6 +47,8 @@
 		075C1F0518E9D4EB00699408 /* CRTDisconnectedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRTDisconnectedViewController.m; sourceTree = "<group>"; };
 		075D411D18E7275E001937AA /* CRTSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRTSettingsViewController.h; sourceTree = "<group>"; };
 		075D411E18E7275E001937AA /* CRTSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRTSettingsViewController.m; sourceTree = "<group>"; };
+		078589B918EEE7760082B615 /* CRTSpeedsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRTSpeedsViewController.h; sourceTree = "<group>"; };
+		078589BA18EEE7760082B615 /* CRTSpeedsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRTSpeedsViewController.m; sourceTree = "<group>"; };
 		07964F1D18E59E3100D0842A /* remoteTransmission.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = remoteTransmission.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07964F2018E59E3100D0842A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		07964F2218E59E3100D0842A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -186,6 +189,8 @@
 				07964F5918E5B2AD00D0842A /* CRTLoginViewController.m */,
 				075D411D18E7275E001937AA /* CRTSettingsViewController.h */,
 				075D411E18E7275E001937AA /* CRTSettingsViewController.m */,
+				078589B918EEE7760082B615 /* CRTSpeedsViewController.h */,
+				078589BA18EEE7760082B615 /* CRTSpeedsViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -290,6 +295,7 @@
 			files = (
 				07964F3118E59E3100D0842A /* CRTAppDelegate.m in Sources */,
 				079E7A3D18E5F1580007D34F /* CRTTorrentListViewController.m in Sources */,
+				078589BB18EEE7760082B615 /* CRTSpeedsViewController.m in Sources */,
 				07964F5D18E5B2E900D0842A /* CRTTransmissionController.m in Sources */,
 				07964F2D18E59E3100D0842A /* main.m in Sources */,
 				0742D4E018E71336009DEB4F /* NSString+crt_CorrectURLEncoding.m in Sources */,

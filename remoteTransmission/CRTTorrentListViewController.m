@@ -15,9 +15,12 @@
 @property (nonatomic, strong) NSDictionary *sessionStats;
 
 @property (nonatomic, strong) UIToolbar *toolbar;
-@property (nonatomic, strong) UILabel *downloadSpeed;
-@property (nonatomic, strong) UILabel *uploadSpeed;
 @property (nonatomic, strong) UILabel *portOpen;
+
+@property (nonatomic, assign) long long downloadSpeed;
+@property (nonatomic, assign) long long uploadSpeed;
+
+@property (nonatomic, strong) UIBarButtonItem *duItem;
 
 @property (nonatomic, assign, getter = isDisconnected) BOOL disconnected;
 @property (nonatomic, assign) BOOL showLoginView;
@@ -30,6 +33,8 @@
 @end
 
 @implementation CRTTorrentListViewController
+
+#pragma mark - Data fetching & consequent UI logic
 
 /** Show an error alert and set the state to disconnected. Switch to the disconnected view
     after the alert has been dismissed (alert view delegate) */
@@ -55,10 +60,8 @@
     }
     
     // Update session stats...
-    self.downloadSpeed.text = [NSString stringWithFormat:@"%@/s",
-                               [self humanReadableSize:[self.sessionStats[@"downloadSpeed"] longLongValue]]];
-    self.uploadSpeed.text = [NSString stringWithFormat:@"%@/s",
-                             [self humanReadableSize:[self.sessionStats[@"uploadSpeed"] longLongValue]]];
+    self.downloadSpeed = [self.sessionStats[@"downloadSpeed"] longLongValue];
+    self.uploadSpeed = [self.sessionStats[@"uploadSpeed"] longLongValue];
     
     // ...and the list of torrents
     [self.tableView reloadData];
@@ -109,24 +112,15 @@
     self.navigationController.toolbarHidden = NO;
     
     CGRect labelFrame = CGRectMake(0, 0, 80, 40);
-    self.downloadSpeed = [[UILabel alloc] initWithFrame:labelFrame];
-    self.uploadSpeed = [[UILabel alloc] initWithFrame:labelFrame];
     self.portOpen = [[UILabel alloc] initWithFrame:labelFrame];
-    self.downloadSpeed.adjustsFontSizeToFitWidth =
-        self.uploadSpeed.adjustsFontSizeToFitWidth =
-        self.portOpen.adjustsFontSizeToFitWidth = YES;
-    UIFont *systemFont12 = [UIFont systemFontOfSize:12.0];
-    self.downloadSpeed.font = systemFont12;
-    self.uploadSpeed.font = systemFont12;
-    self.portOpen.font = systemFont12;
-    self.downloadSpeed.text = @"";
-    self.uploadSpeed.text = @"";
+    self.portOpen.font = [UIFont systemFontOfSize:12.0];
     self.portOpen.text = @"";
-    UIBarButtonItem *itemDownload = [[UIBarButtonItem alloc] initWithCustomView:self.downloadSpeed];
-    UIBarButtonItem *itemUpload = [[UIBarButtonItem alloc] initWithCustomView:self.uploadSpeed];
+    
+    self.duItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:@selector(downloadTapped:)];
+    
     UIBarButtonItem *flexibleSeparator = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *itemPort = [[UIBarButtonItem alloc] initWithCustomView:self.portOpen];
-    self.toolbarItems = @[itemDownload, itemUpload, flexibleSeparator, itemPort];
+    self.toolbarItems = @[self.duItem, flexibleSeparator, itemPort];
     
     self.disconnected = YES;
     
@@ -141,7 +135,6 @@
         [self fetchDataFromServer];
     }
 }
-
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -158,6 +151,11 @@
 - (void)refreshControlChanged:(id)sender
 {
     [self fetchDataFromServer];
+}
+
+- (void)downloadTapped:(id)sender
+{
+    [self performSegueWithIdentifier:@"showSpeeds" sender:self];
 }
 
 
@@ -330,6 +328,24 @@
     }
     return [NSString stringWithFormat:@"%lld %@", size, @"B"];
 }
+
+
+- (void)setDownloadSpeed:(long long)downloadSpeed
+{
+    _downloadSpeed = downloadSpeed;
+    self.duItem.title = [NSString stringWithFormat:@"%@ / %@",
+                         [self humanReadableSize:downloadSpeed],
+                         [self humanReadableSize:self.uploadSpeed]];
+}
+
+- (void)setUploadSpeed:(long long)uploadSpeed
+{
+    _uploadSpeed = uploadSpeed;
+    self.duItem.title = [NSString stringWithFormat:@"%@ / %@",
+                         [self humanReadableSize:self.downloadSpeed],
+                         [self humanReadableSize:uploadSpeed]];
+}
+
 
 
 @end

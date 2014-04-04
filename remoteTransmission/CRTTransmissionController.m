@@ -176,6 +176,84 @@ const NSInteger CRTTransmissionControllerErrorMalformedResponse = 3;
     }];
 }
 
+- (void)setSessionConfiguration:(NSDictionary *)stats withCompletion:(void (^)(NSError *__autoreleasing))callback
+{
+    NSDictionary *request = [self createRequestForMethod:@"session-set"
+                                           withArguments:stats
+                                                     tag:0];
+    
+    [self sendRequest:request callback:^(id data, NSError *error) {
+        if (error) {
+            callback(error);
+            return;
+        }
+        
+        callback(nil);
+    }];
+}
+
+- (void)getSpeedLimits:(void (^)(long, long, NSError *))callback
+{
+    NSDictionary *request = [self createRequestForMethod:@"session-get"
+                                           withArguments:nil
+                                                     tag:0];
+    
+    [self sendRequest:request callback:^(id data, NSError *error) {
+        if (error) {
+            callback(0, 0, error);
+            return;
+        }
+        
+        NSDictionary *arguments = data[@"arguments"];
+        if (!arguments || !arguments[@"speed-limit-down-enabled"] ||
+            !arguments[@"speed-limit-up-enabled"] ||
+            !arguments[@"speed-limit-down"] ||
+            !arguments[@"speed-limit-up"]) {
+            callback(0, 0, [NSError errorWithDomain:CRTTransmissionControllerErrorDomain
+                                               code:CRTTransmissionControllerErrorMalformedResponse
+                                           userInfo:@{NSLocalizedDescriptionKey: @"Malformed response from server"}]);
+            return;
+        }
+        
+        BOOL downloadLimitEnabled = [arguments[@"speed-limit-down-enabled"] boolValue];
+        BOOL uploadLimitEnabled = [arguments[@"speed-limit-up-enabled"] boolValue];
+        long downloadLimit = 0, uploadLimit = 0;
+        if (downloadLimitEnabled) {
+            downloadLimit = [arguments[@"speed-limit-down"] longValue];
+        }
+        if (uploadLimitEnabled) {
+            uploadLimit = [arguments[@"speed-limit-up"] longValue];
+        }
+        
+        callback(downloadLimit, uploadLimit, nil);
+    }];
+}
+
+- (void)setDownloadLimit:(long)downloadLimit
+             uploadLimit:(long)uploadLimit
+          withCompletion:(void (^)(NSError *))callback
+{
+    NSMutableDictionary *args = [@{@"speed-limit-down-enabled": (downloadLimit ? @YES : @NO),
+                                  @"speed-limit-up-enabled": (uploadLimit ? @YES : @NO)} mutableCopy];
+    
+    if (downloadLimit)
+        args[@"speed-limit-down"] = @(downloadLimit);
+    if (uploadLimit)
+        args[@"speed-limit-up"] = @(uploadLimit);
+    
+    NSDictionary *request = [self createRequestForMethod:@"session-set"
+                                           withArguments:args
+                                                     tag:0];
+    
+    [self sendRequest:request callback:^(id data, NSError *error) {
+        if (error) {
+            callback(error);
+            return;
+        }
+        
+        callback(nil);
+    }];
+}
 
 - (void)isPortOpen:(void (^)(BOOL isPortOpen, NSError *__autoreleasing error))callback
 {
