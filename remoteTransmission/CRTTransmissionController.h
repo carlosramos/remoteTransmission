@@ -78,4 +78,6 @@ extern const NSInteger CRTTransmissionControllerErrorMalformedResponse;
                  error parameter.
  */
 - (void)setDownloadLimit:(long)downloadLimit uploadLimit:(long)uploadLimit withCompletion:(void (^)(NSError *error))callback;
+
+- (void)addTorrent:(NSString *)torrentFilePathOrURL withCompletion:(void (^)(NSError *error))callback;
 @end

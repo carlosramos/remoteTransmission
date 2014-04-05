@@ -28,6 +28,7 @@
 		07964F5A18E5B2AD00D0842A /* CRTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07964F5918E5B2AD00D0842A /* CRTLoginViewController.m */; };
 		07964F5D18E5B2E900D0842A /* CRTTransmissionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07964F5C18E5B2E900D0842A /* CRTTransmissionController.m */; };
 		079E7A3D18E5F1580007D34F /* CRTTorrentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 079E7A3C18E5F1580007D34F /* CRTTorrentListViewController.m */; };
+		07DDAAB318F07159000E0C1B /* CRTAddTorrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DDAAB218F07159000E0C1B /* CRTAddTorrentViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,8 @@
 		07964F5C18E5B2E900D0842A /* CRTTransmissionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRTTransmissionController.m; sourceTree = "<group>"; };
 		079E7A3B18E5F1580007D34F /* CRTTorrentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRTTorrentListViewController.h; sourceTree = "<group>"; };
 		079E7A3C18E5F1580007D34F /* CRTTorrentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRTTorrentListViewController.m; sourceTree = "<group>"; };
+		07DDAAB118F07159000E0C1B /* CRTAddTorrentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRTAddTorrentViewController.h; sourceTree = "<group>"; };
+		07DDAAB218F07159000E0C1B /* CRTAddTorrentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRTAddTorrentViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +194,8 @@
 				075D411E18E7275E001937AA /* CRTSettingsViewController.m */,
 				078589B918EEE7760082B615 /* CRTSpeedsViewController.h */,
 				078589BA18EEE7760082B615 /* CRTSpeedsViewController.m */,
+				07DDAAB118F07159000E0C1B /* CRTAddTorrentViewController.h */,
+				07DDAAB218F07159000E0C1B /* CRTAddTorrentViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -243,6 +248,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Carlos Ramos González";
 				TargetAttributes = {
+					07964F1C18E59E3000D0842A = {
+						DevelopmentTeam = V6P67L54PH;
+					};
 					07964F3D18E59E3100D0842A = {
 						TestTargetID = 07964F1C18E59E3000D0842A;
 					};
@@ -300,6 +308,7 @@
 				07964F2D18E59E3100D0842A /* main.m in Sources */,
 				0742D4E018E71336009DEB4F /* NSString+crt_CorrectURLEncoding.m in Sources */,
 				07964F5A18E5B2AD00D0842A /* CRTLoginViewController.m in Sources */,
+				07DDAAB318F07159000E0C1B /* CRTAddTorrentViewController.m in Sources */,
 				07964F5718E5B11300D0842A /* CRTAuthentication.m in Sources */,
 				075D411F18E7275E001937AA /* CRTSettingsViewController.m in Sources */,
 				075C1F0618E9D4EB00699408 /* CRTDisconnectedViewController.m in Sources */,
@@ -427,10 +436,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "remoteTransmission/remoteTransmission-Prefix.pch";
 				INFOPLIST_FILE = "remoteTransmission/remoteTransmission-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -440,10 +452,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "remoteTransmission/remoteTransmission-Prefix.pch";
 				INFOPLIST_FILE = "remoteTransmission/remoteTransmission-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -75,13 +75,13 @@
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
-    [self.transmission torrentList:^(NSArray *list, NSError *__autoreleasing error) {
+    [self.transmission torrentList:^(NSArray *list, NSError *error) {
         if (error) {
             [self performSelectorOnMainThread:@selector(handleFetchingError:) withObject:error waitUntilDone:NO];
             return;
         }
         
-        [self.transmission sessionStats:^(NSDictionary *stats, NSError *__autoreleasing error) {
+        [self.transmission sessionStats:^(NSDictionary *stats, NSError *error) {
             if (error) {
                 [self performSelectorOnMainThread:@selector(handleFetchingError:) withObject:error waitUntilDone:NO];
                 return;
@@ -345,7 +345,5 @@
                          [self humanReadableSize:self.downloadSpeed],
                          [self humanReadableSize:uploadSpeed]];
 }
-
-
 
 @end

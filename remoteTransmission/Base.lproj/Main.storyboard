@@ -67,7 +67,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rNa-ep-yln" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="829" y="-477"/>
+            <point key="canvasLocation" x="841" y="-1047"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="r7e-u5-rYG">
@@ -158,7 +158,62 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nGs-hQ-FjG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1367" y="-432"/>
+            <point key="canvasLocation" x="295" y="-602"/>
+        </scene>
+        <!--Add Torrent View Controller-->
+        <scene sceneID="J5X-zV-HuY">
+            <objects>
+                <tableViewController id="lFi-jo-Ywn" customClass="CRTAddTorrentViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="CbQ-bQ-nex">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle=".torrent URL" footerTitle="You can use a link to a .torrent file or a magnet link." id="Aoz-Fo-5Ex">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="YVs-Fy-PGh">
+                                        <rect key="frame" x="0.0" y="119" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YVs-Fy-PGh" id="b4J-Uf-Hjo">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dYM-tC-Pwq">
+                                                    <rect key="frame" x="20" y="7" width="280" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="lFi-jo-Ywn" id="Zgo-MP-Yur"/>
+                            <outlet property="delegate" destination="lFi-jo-Ywn" id="d73-3H-7N3"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="9ZQ-Rq-VFm">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="myf-ft-LdK">
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="lFi-jo-Ywn" id="Gou-2a-bc6"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="JqK-OP-i94">
+                            <connections>
+                                <action selector="doneButtonTapped:" destination="lFi-jo-Ywn" id="CVw-2J-5qc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="torrentTextField" destination="dYM-tC-Pwq" id="bkU-PJ-EgV"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0nN-VO-Jpb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2406" y="-346"/>
         </scene>
         <!--Torrent List View Controller - Torrents-->
         <scene sceneID="a63-GM-xfn">
@@ -196,6 +251,9 @@
                                         </progressView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="s1f-NT-Sh8" kind="push" identifier="torrentDetail" id="bx0-TN-orT"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -207,6 +265,11 @@
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="PLO-2K-PKl">
                             <connections>
                                 <segue destination="7tO-Qk-DNu" kind="modal" identifier="showSettings" id="CMJ-TT-acb"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="T7E-gP-jBc">
+                            <connections>
+                                <segue destination="jYw-rn-PWZ" kind="modal" identifier="addTorrent" id="2dI-6x-BJy"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -266,7 +329,53 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="68b-AG-Rm4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1970" y="142"/>
+            <point key="canvasLocation" x="1980" y="-1047"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="FbZ-Bh-hxh">
+            <objects>
+                <tableViewController id="s1f-NT-Sh8" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="NBB-dc-jTT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Torrent details" id="BGe-oC-ZAJ">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="104" id="6IC-ST-a6J">
+                                        <rect key="frame" x="0.0" y="119" width="320" height="104"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6IC-ST-a6J" id="WDk-OY-zSI">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="103"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Torrent name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHv-NZ-9nK">
+                                                    <rect key="frame" x="12" y="7" width="300" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oPm-CA-6bv">
+                                                    <rect key="frame" x="12" y="33" width="300" height="2"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </progressView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="s1f-NT-Sh8" id="7Ib-xH-0p8"/>
+                            <outlet property="delegate" destination="s1f-NT-Sh8" id="GRV-FD-ESS"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="GQE-IY-ZKe"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FoX-Ac-lK0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1576" y="219"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kjD-Ds-Cvd">
@@ -302,7 +411,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RXY-l7-iPx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1444" y="142"/>
+            <point key="canvasLocation" x="1440" y="-602"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ixS-My-GeG">
@@ -320,7 +429,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tYN-qm-00O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="303" y="-477"/>
+            <point key="canvasLocation" x="841" y="-431"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Bw9-a3-dqK">
@@ -464,6 +573,24 @@
             </objects>
             <point key="canvasLocation" x="1304" y="960"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fH4-eh-CuR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jYw-rn-PWZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bzm-Xz-2tC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lFi-jo-Ywn" kind="relationship" relationship="rootViewController" id="nCj-jS-IQY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e88-Vk-YCo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1928" y="-346"/>
+        </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -471,6 +598,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="XZm-Nh-Sp7"/>
+        <segue reference="8ph-gD-6MR"/>
     </inferredMetricsTieBreakers>
 </document>

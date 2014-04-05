@@ -255,6 +255,24 @@ const NSInteger CRTTransmissionControllerErrorMalformedResponse = 3;
     }];
 }
 
+- (void)addTorrent:(NSString *)torrentFilePathOrURL withCompletion:(void (^)(NSError *))callback
+{
+    NSAssert(torrentFilePathOrURL != nil, @"The .torrent file path or URL can't be nil");
+    
+    NSDictionary *request = [self createRequestForMethod:@"torrent-add"
+                                           withArguments:@{@"filename": torrentFilePathOrURL}
+                                                     tag:0];
+    
+    [self sendRequest:request callback:^(id data, NSError *error) {
+        if (error) {
+            callback(error);
+            return;
+        }
+        
+        callback(nil);
+    }];
+}
+
 - (void)isPortOpen:(void (^)(BOOL isPortOpen, NSError *__autoreleasing error))callback
 {
     NSDictionary *request = [self createRequestForMethod:@"port-test" withArguments:nil tag:0];
@@ -331,8 +349,6 @@ const NSInteger CRTTransmissionControllerErrorMalformedResponse = 3;
         }
     }];
     [dataTask resume];
-    
-    NSLog(@"operation count = %d", self.queue.operationCount);
 }
 
 
