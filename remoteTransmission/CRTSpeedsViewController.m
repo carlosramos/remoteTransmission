@@ -8,6 +8,7 @@
 
 #import "CRTSpeedsViewController.h"
 #import "CRTTransmissionController.h"
+#import "CRTViewControllerUtilities.h"
 
 @interface CRTSpeedsViewController ()
 - (IBAction)cancelTapped:(id)sender;
@@ -24,32 +25,12 @@
 
 @implementation CRTSpeedsViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [[CRTTransmissionController sharedController] getSpeedLimits:^(long downloadLimit, long uploadLimit, NSError *error) {
         if (error) {
-            // TODO : Show message to the user and dimiss this view controller
-            NSLog(@"Error trying to fetch speed limits: %@", error.localizedDescription);
+            [CRTViewControllerUtilities showAlert:@"Error trying to get download/upload speeds" message:error.localizedDescription];
+            [self dismissViewControllerAnimated:YES completion:NULL];
             return;
         }
         
@@ -75,12 +56,6 @@
     }];
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
-    
-    return YES;
-}
-
 - (void)cancelTapped:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
@@ -94,8 +69,7 @@
                                                        uploadLimit:self.uploadLimit
                                                     withCompletion:^(NSError *error) {
                                                         if (error) {
-                                                            // TODO: Proper error handling
-                                                            NSLog(@"error: %@", error.localizedDescription);
+                                                            [CRTViewControllerUtilities showAlert:@"Error" message:error.localizedDescription];
                                                         }
                                                     }];
     [self dismissViewControllerAnimated:YES completion:NULL];

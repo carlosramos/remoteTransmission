@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CRTSpeedsViewController : UITableViewController <UITextFieldDelegate>
+@interface CRTSpeedsViewController : UITableViewController
 
 @end

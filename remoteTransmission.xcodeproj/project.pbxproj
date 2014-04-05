@@ -29,6 +29,7 @@
 		07964F5D18E5B2E900D0842A /* CRTTransmissionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07964F5C18E5B2E900D0842A /* CRTTransmissionController.m */; };
 		079E7A3D18E5F1580007D34F /* CRTTorrentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 079E7A3C18E5F1580007D34F /* CRTTorrentListViewController.m */; };
 		07DDAAB318F07159000E0C1B /* CRTAddTorrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DDAAB218F07159000E0C1B /* CRTAddTorrentViewController.m */; };
+		07F6639318F0875300F5DE48 /* CRTViewControllerUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F6639218F0875300F5DE48 /* CRTViewControllerUtilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		079E7A3C18E5F1580007D34F /* CRTTorrentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRTTorrentListViewController.m; sourceTree = "<group>"; };
 		07DDAAB118F07159000E0C1B /* CRTAddTorrentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRTAddTorrentViewController.h; sourceTree = "<group>"; };
 		07DDAAB218F07159000E0C1B /* CRTAddTorrentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRTAddTorrentViewController.m; sourceTree = "<group>"; };
+		07F6639118F0875300F5DE48 /* CRTViewControllerUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRTViewControllerUtilities.h; sourceTree = "<group>"; };
+		07F6639218F0875300F5DE48 /* CRTViewControllerUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRTViewControllerUtilities.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +199,8 @@
 				078589BA18EEE7760082B615 /* CRTSpeedsViewController.m */,
 				07DDAAB118F07159000E0C1B /* CRTAddTorrentViewController.h */,
 				07DDAAB218F07159000E0C1B /* CRTAddTorrentViewController.m */,
+				07F6639118F0875300F5DE48 /* CRTViewControllerUtilities.h */,
+				07F6639218F0875300F5DE48 /* CRTViewControllerUtilities.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -312,6 +317,7 @@
 				07964F5718E5B11300D0842A /* CRTAuthentication.m in Sources */,
 				075D411F18E7275E001937AA /* CRTSettingsViewController.m in Sources */,
 				075C1F0618E9D4EB00699408 /* CRTDisconnectedViewController.m in Sources */,
+				07F6639318F0875300F5DE48 /* CRTViewControllerUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

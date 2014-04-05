@@ -8,6 +8,7 @@
 
 #import "CRTAddTorrentViewController.h"
 #import "CRTTransmissionController.h"
+#import "CRTViewControllerUtilities.h"
 
 @interface CRTAddTorrentViewController ()
 @property (nonatomic, weak) IBOutlet UITextField *torrentTextField;
@@ -33,8 +34,8 @@
         [[CRTTransmissionController sharedController] addTorrent:self.torrentTextField.text
                                                   withCompletion:^(NSError *error) {
                                                       if (error) {
-                                                          // TODO: Better error handling
-                                                          NSLog(@"Error: %@", error);
+                                                          [CRTViewControllerUtilities showAlert:@"Error adding torrent" message:error.localizedDescription];
+                                                          return;
                                                       }
                                                       dispatch_async(dispatch_get_main_queue(), ^{
                                                           [self dismissViewControllerAnimated:YES completion:NULL];
@@ -42,5 +43,6 @@
                                                   }];
     }
 }
+
 
 @end
