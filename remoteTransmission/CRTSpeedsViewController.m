@@ -8,7 +8,7 @@
 
 #import "CRTSpeedsViewController.h"
 #import "CRTTransmissionController.h"
-#import "CRTViewControllerUtilities.h"
+#import "UIAlertView+crt_ShowError.h"
 
 @interface CRTSpeedsViewController ()
 - (IBAction)cancelTapped:(id)sender;
@@ -29,7 +29,7 @@
 {
     [[CRTTransmissionController sharedController] getSpeedLimits:^(long downloadLimit, long uploadLimit, NSError *error) {
         if (error) {
-            [CRTViewControllerUtilities showAlert:@"Error trying to get download/upload speeds" message:error.localizedDescription];
+            [UIAlertView crt_showError:error];
             [self dismissViewControllerAnimated:YES completion:NULL];
             return;
         }
@@ -69,7 +69,7 @@
                                                        uploadLimit:self.uploadLimit
                                                     withCompletion:^(NSError *error) {
                                                         if (error) {
-                                                            [CRTViewControllerUtilities showAlert:@"Error" message:error.localizedDescription];
+                                                            [UIAlertView crt_showError:error];
                                                         }
                                                     }];
     [self dismissViewControllerAnimated:YES completion:NULL];
