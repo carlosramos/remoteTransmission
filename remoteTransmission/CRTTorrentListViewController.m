@@ -8,6 +8,8 @@
 
 #import "CRTTorrentListViewController.h"
 #import "CRTTransmissionController.h"
+#import "CRTTorrentDetailsViewController.h"
+#import "UIProgressView+crt_setTorrentProgress.h"
 
 @interface CRTTorrentListViewController ()
 @property (nonatomic, strong) CRTTransmissionController *transmission;
@@ -264,22 +266,33 @@
     titulo.text = torrent[@"name"];
     
     NSInteger status = [torrent[@"status"] integerValue];
-    // If the torrent is done, show a full green progress bar and the total data size.
-    // If the torrent is downloading, show the normal progress bar and the amount of data downloaded.
     float percentDone = [torrent[@"percentDone"] floatValue];
+    
+    // --- The following code has been replaced by a category for UIProgressView
+//    // If the torrent is done, show a full green progress bar and the total data size.
+//    // If the torrent is downloading, show the normal progress bar and the amount of data downloaded.
+//    if (percentDone >= 1.0) {
+//        if (status == 0) {
+//            prog.tintColor = [UIColor darkGrayColor];
+//        } else {
+//            [prog setTintColor:[UIColor greenColor]];
+//        }
+//        [prog setProgress:1.0 animated:YES];
+//        tam.text = [self humanReadableSize:totalSize.longLongValue];
+//    } else {
+//        if (status == 0) {
+//            prog.tintColor = [UIColor darkGrayColor];
+//        }
+//        [prog setProgress:[torrent[@"percentDone"] floatValue] animated:YES];
+//        float downloaded = totalSize.longLongValue * percentDone;
+//        tam.text = [NSString stringWithFormat:@"%@ de %@", [self humanReadableSize:downloaded],
+//                    [self humanReadableSize:totalSize.longLongValue]];
+//    }
+    [prog crt_setTorrentProgress:percentDone status:status];
+    
     if (percentDone >= 1.0) {
-        if (status == 0) {
-            prog.tintColor = [UIColor darkGrayColor];
-        } else {
-            [prog setTintColor:[UIColor greenColor]];
-        }
-        [prog setProgress:1.0 animated:YES];
         tam.text = [self humanReadableSize:totalSize.longLongValue];
     } else {
-        if (status == 0) {
-            prog.tintColor = [UIColor darkGrayColor];
-        }
-        [prog setProgress:[torrent[@"percentDone"] floatValue] animated:YES];
         float downloaded = totalSize.longLongValue * percentDone;
         tam.text = [NSString stringWithFormat:@"%@ de %@", [self humanReadableSize:downloaded],
                     [self humanReadableSize:totalSize.longLongValue]];
@@ -304,6 +317,10 @@
         UINavigationController *navController = segue.destinationViewController;
         CRTDisconnectedViewController *dvc = (CRTDisconnectedViewController *)navController.topViewController;
         dvc.delegate = self;
+    } else if ([segue.identifier isEqualToString:@"torrentDetails"]) {
+        CRTTorrentDetailsViewController *tdvc = segue.destinationViewController;
+        NSDictionary *torrent = self.torrentList[self.tableView.indexPathForSelectedRow.row];
+        tdvc.torrentDetails = torrent;
     }
 }
 

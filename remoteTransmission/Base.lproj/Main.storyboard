@@ -252,7 +252,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="s1f-NT-Sh8" kind="push" identifier="torrentDetail" id="bx0-TN-orT"/>
+                                    <segue destination="s1f-NT-Sh8" kind="push" identifier="torrentDetails" id="bx0-TN-orT"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -331,10 +331,10 @@
             </objects>
             <point key="canvasLocation" x="1980" y="-1047"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Torrent Details View Controller-->
         <scene sceneID="FbZ-Bh-hxh">
             <objects>
-                <tableViewController id="s1f-NT-Sh8" sceneMemberID="viewController">
+                <tableViewController id="s1f-NT-Sh8" customClass="CRTTorrentDetailsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="NBB-dc-jTT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -372,6 +372,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="GQE-IY-ZKe"/>
+                    <connections>
+                        <outlet property="torrentName" destination="pHv-NZ-9nK" id="G1f-jU-HtY"/>
+                        <outlet property="torrentProgress" destination="oPm-CA-6bv" id="szh-Q8-WK0"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FoX-Ac-lK0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

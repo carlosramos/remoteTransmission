@@ -29,6 +29,8 @@
 		07964F5A18E5B2AD00D0842A /* CRTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07964F5918E5B2AD00D0842A /* CRTLoginViewController.m */; };
 		07964F5D18E5B2E900D0842A /* CRTTransmissionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07964F5C18E5B2E900D0842A /* CRTTransmissionController.m */; };
 		079E7A3D18E5F1580007D34F /* CRTTorrentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 079E7A3C18E5F1580007D34F /* CRTTorrentListViewController.m */; };
+		07A7FCD918F42A1300122070 /* CRTTorrentDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A7FCD818F42A1300122070 /* CRTTorrentDetailsViewController.m */; };
+		07A7FCDC18F42BC700122070 /* UIProgressView+crt_setTorrentProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A7FCDB18F42BC700122070 /* UIProgressView+crt_setTorrentProgress.m */; };
 		07DDAAB318F07159000E0C1B /* CRTAddTorrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DDAAB218F07159000E0C1B /* CRTAddTorrentViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +80,10 @@
 		07964F5C18E5B2E900D0842A /* CRTTransmissionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRTTransmissionController.m; sourceTree = "<group>"; };
 		079E7A3B18E5F1580007D34F /* CRTTorrentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRTTorrentListViewController.h; sourceTree = "<group>"; };
 		079E7A3C18E5F1580007D34F /* CRTTorrentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRTTorrentListViewController.m; sourceTree = "<group>"; };
+		07A7FCD718F42A1300122070 /* CRTTorrentDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRTTorrentDetailsViewController.h; sourceTree = "<group>"; };
+		07A7FCD818F42A1300122070 /* CRTTorrentDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRTTorrentDetailsViewController.m; sourceTree = "<group>"; };
+		07A7FCDA18F42BC700122070 /* UIProgressView+crt_setTorrentProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+crt_setTorrentProgress.h"; sourceTree = "<group>"; };
+		07A7FCDB18F42BC700122070 /* UIProgressView+crt_setTorrentProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+crt_setTorrentProgress.m"; sourceTree = "<group>"; };
 		07DDAAB118F07159000E0C1B /* CRTAddTorrentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRTAddTorrentViewController.h; sourceTree = "<group>"; };
 		07DDAAB218F07159000E0C1B /* CRTAddTorrentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRTAddTorrentViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,10 +153,7 @@
 				07964F5618E5B11300D0842A /* CRTAuthentication.m */,
 				07964F5B18E5B2E900D0842A /* CRTTransmissionController.h */,
 				07964F5C18E5B2E900D0842A /* CRTTransmissionController.m */,
-				0742D4DE18E71336009DEB4F /* NSString+crt_CorrectURLEncoding.h */,
-				0742D4DF18E71336009DEB4F /* NSString+crt_CorrectURLEncoding.m */,
-				070C429618F3293700892922 /* UIAlertView+crt_ShowError.h */,
-				070C429718F3293700892922 /* UIAlertView+crt_ShowError.m */,
+				07A7FCDD18F42D7B00122070 /* Categories */,
 				07964F3818E59E3100D0842A /* Images.xcassets */,
 				07964F2718E59E3100D0842A /* Supporting Files */,
 			);
@@ -201,8 +204,23 @@
 				078589BA18EEE7760082B615 /* CRTSpeedsViewController.m */,
 				07DDAAB118F07159000E0C1B /* CRTAddTorrentViewController.h */,
 				07DDAAB218F07159000E0C1B /* CRTAddTorrentViewController.m */,
+				07A7FCD718F42A1300122070 /* CRTTorrentDetailsViewController.h */,
+				07A7FCD818F42A1300122070 /* CRTTorrentDetailsViewController.m */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		07A7FCDD18F42D7B00122070 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				0742D4DE18E71336009DEB4F /* NSString+crt_CorrectURLEncoding.h */,
+				0742D4DF18E71336009DEB4F /* NSString+crt_CorrectURLEncoding.m */,
+				070C429618F3293700892922 /* UIAlertView+crt_ShowError.h */,
+				070C429718F3293700892922 /* UIAlertView+crt_ShowError.m */,
+				07A7FCDA18F42BC700122070 /* UIProgressView+crt_setTorrentProgress.h */,
+				07A7FCDB18F42BC700122070 /* UIProgressView+crt_setTorrentProgress.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,10 +326,12 @@
 			files = (
 				07964F3118E59E3100D0842A /* CRTAppDelegate.m in Sources */,
 				070C429818F3293700892922 /* UIAlertView+crt_ShowError.m in Sources */,
+				07A7FCDC18F42BC700122070 /* UIProgressView+crt_setTorrentProgress.m in Sources */,
 				079E7A3D18E5F1580007D34F /* CRTTorrentListViewController.m in Sources */,
 				078589BB18EEE7760082B615 /* CRTSpeedsViewController.m in Sources */,
 				07964F5D18E5B2E900D0842A /* CRTTransmissionController.m in Sources */,
 				07964F2D18E59E3100D0842A /* main.m in Sources */,
+				07A7FCD918F42A1300122070 /* CRTTorrentDetailsViewController.m in Sources */,
 				0742D4E018E71336009DEB4F /* NSString+crt_CorrectURLEncoding.m in Sources */,
 				07964F5A18E5B2AD00D0842A /* CRTLoginViewController.m in Sources */,
 				07DDAAB318F07159000E0C1B /* CRTAddTorrentViewController.m in Sources */,
