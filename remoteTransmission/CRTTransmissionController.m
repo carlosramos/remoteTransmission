@@ -255,6 +255,44 @@ const NSInteger CRTTransmissionControllerErrorMalformedResponse = 3;
     }];
 }
 
+- (void)getAltSpeedsEnabled:(void (^)(BOOL, NSError *))callback
+{
+    NSDictionary *request = [self createRequestForMethod:@"session-get"
+                                           withArguments:nil
+                                                     tag:0];
+    [self sendRequest:request callback:^(id data, NSError *error) {
+        if (error) {
+            callback(NO, error);
+            return;
+        }
+        
+        NSDictionary *args = data[@"arguments"];
+        if (!args[@"alt-speed-enabled"]) {
+            callback(NO, [NSError errorWithDomain:CRTTransmissionControllerErrorDomain
+                                             code:CRTTransmissionControllerErrorMalformedResponse
+                                         userInfo:@{NSLocalizedDescriptionKey: @"Malformed response from server"}]);
+            return;
+        }
+        
+        callback([args[@"alt-speed-enabled"] boolValue], nil);
+    }];
+}
+
+- (void)setAltSpeeds:(BOOL)altSpeedEnabled withCompletion:(void (^)(NSError *))callback
+{
+    NSDictionary *request = [self createRequestForMethod:@"session-set"
+                                           withArguments:@{@"alt-speed-enabled": @(altSpeedEnabled)}
+                                                     tag:0];
+    [self sendRequest:request callback:^(id data, NSError *error) {
+        if (error) {
+            callback(error);
+            return;
+        }
+        
+        callback(nil);
+    }];
+}
+
 - (void)addTorrent:(NSString *)torrentFilePathOrURL withCompletion:(void (^)(NSError *))callback
 {
     NSAssert(torrentFilePathOrURL != nil, @"The .torrent file path or URL can't be nil");
