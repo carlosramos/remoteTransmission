@@ -33,11 +33,12 @@
         self.navigationItem.rightBarButtonItem = activityBarItem;
         [[CRTTransmissionController sharedController] addTorrent:self.torrentTextField.text
                                                   withCompletion:^(NSError *error) {
-                                                      if (error) {
-                                                          [UIAlertView crt_showError:error];
-                                                          return;
-                                                      }
                                                       dispatch_async(dispatch_get_main_queue(), ^{
+                                                          if (error) {
+                                                              [UIAlertView crt_showError:error];
+                                                              return;
+                                                          }
+
                                                           [self dismissViewControllerAnimated:YES completion:NULL];
                                                       });
                                                   }];
