@@ -213,7 +213,13 @@
 {
     [self dismissViewControllerAnimated:YES completion:^{
         [self invalidateTimers];
-        [self.transmission.queue cancelAllOperations];
+
+        [self.transmission cancelAllTasks];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        
+        [self.torrentList removeAllObjects];
+        self.downloadSpeed = self.uploadSpeed = 0;
+        
         [self.transmission setHost:nil port:0];
         self.transmission.authentication.username = nil;
         self.transmission.authentication.password = nil;

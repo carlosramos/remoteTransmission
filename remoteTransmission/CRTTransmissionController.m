@@ -14,6 +14,10 @@ const NSInteger CRTTransmissionControllerErrorUnknownStatusCode = 1;
 const NSInteger CRTTransmissionControllerErrorNotSuccessfulResponse = 2;
 const NSInteger CRTTransmissionControllerErrorMalformedResponse = 3;
 
+@interface CRTTransmissionController ()
+@property (nonatomic, strong) NSMutableArray *dataTasks;
+@end
+
 @implementation CRTTransmissionController 
 
 + (CRTTransmissionController *)sharedController
@@ -35,6 +39,8 @@ const NSInteger CRTTransmissionControllerErrorMalformedResponse = 3;
         _queue = [[NSOperationQueue alloc] init];
         _queue.maxConcurrentOperationCount = 1;     // Serial queue
         _transmissionSessionID = @"nosessionyet";
+        
+        _dataTasks = [[NSMutableArray alloc] init];
         
         _session = [NSURLSession sessionWithConfiguration:self.sessionConfiguration delegate:self delegateQueue:self.queue];
         [self readHostPortFromUserDefaults];
@@ -349,6 +355,7 @@ const NSInteger CRTTransmissionControllerErrorMalformedResponse = 3;
     NSAssert(finalRequest != nil, @"Error building NSURLRequest");
     
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:finalRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        [self.dataTasks removeObject:dataTask];
         if (error) {
             callback(nil, error);
             return;
@@ -386,7 +393,16 @@ const NSInteger CRTTransmissionControllerErrorMalformedResponse = 3;
                                                      NSLocalizedDescriptionKey: @"Status code not expected"}]);
         }
     }];
+    [self.dataTasks addObject:dataTask];
     [dataTask resume];
+}
+
+- (void)cancelAllTasks
+{
+    for (NSURLSessionDataTask *task in self.dataTasks) {
+        [task cancel];
+    }
+    [self.dataTasks removeAllObjects];
 }
 
 

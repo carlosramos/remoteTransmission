@@ -31,6 +31,9 @@ extern const NSInteger CRTTransmissionControllerErrorMalformedResponse;
 /** Returns the shared instance of the controller. */
 + (CRTTransmissionController *)sharedController;
 
+/** Cancels the currently running tasks. */
+- (void)cancelAllTasks;
+
 /** Sends to the Transmission RPC server the given request.
 
  The request should be a dictionary built with -createRequestForMethod:withArguments:tag:.
