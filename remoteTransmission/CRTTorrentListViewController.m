@@ -202,6 +202,7 @@
     if (self.transmission.authentication.isAuthenticated) {
         self.showLoginView = NO;
         self.disconnected = NO;
+        self.updateTimerAfterFetchingData = YES;
         [self fetchDataFromServer];
     }
 }
