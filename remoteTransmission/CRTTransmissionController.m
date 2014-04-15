@@ -411,9 +411,11 @@ const NSInteger CRTTransmissionControllerErrorMalformedResponse = 3;
                 if ([resultDict[@"result"] isEqualToString:@"success"]) {
                     callback(jsonData, nil);
                 } else {
+                    NSString *result = resultDict[@"result"];
+                    NSString *errorDescription = [NSString stringWithFormat:@"Server responded to the request with an error: %@", result];
                     callback(jsonData, [NSError errorWithDomain:CRTTransmissionControllerErrorDomain
                                                            code:CRTTransmissionControllerErrorNotSuccessfulResponse
-                                                       userInfo:@{NSLocalizedDescriptionKey: @"result is not \"success\""}]);
+                                                       userInfo:@{NSLocalizedDescriptionKey: errorDescription}]);
                 }
             }
         } else {
