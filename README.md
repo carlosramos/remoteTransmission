@@ -9,6 +9,7 @@ Currently implemented:
 - Login/logout.
 - List of torrents.
 - Torrents name, progress, and size.
+- Start/stop individual torrents.
 - Current global download/upload speed.
 - The user can limit the download/upload speed.
 - The user can add a new torrent (.torrent URL or magnet link).
