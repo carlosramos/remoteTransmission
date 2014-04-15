@@ -87,4 +87,8 @@ extern const NSInteger CRTTransmissionControllerErrorMalformedResponse;
 - (void)setAltSpeeds:(BOOL)altSpeedEnabled withCompletion:(void (^)(NSError *error))callback;
 
 - (void)addTorrent:(NSString *)torrentFilePathOrURL withCompletion:(void (^)(NSError *error))callback;
+
+- (void)startTorrent:(NSInteger)torrentID withCompletion:(void (^)(NSError *error))callback;
+
+- (void)stopTorrent:(NSInteger)torrentID withCompletion:(void (^)(NSError *error))callback;
 @end

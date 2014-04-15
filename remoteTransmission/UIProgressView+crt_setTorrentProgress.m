@@ -14,6 +14,7 @@
 {
     // If the torrent is done, show a full green progress bar and the total data size.
     // If the torrent is downloading, show the normal progress bar and the amount of data downloaded.
+    
     if (percentage >= 1.0) {
         if (status == 0) {
             self.tintColor = [UIColor darkGrayColor];
@@ -25,6 +26,8 @@
     } else {
         if (status == 0) {
             self.tintColor = [UIColor darkGrayColor];
+        } else {
+            self.tintColor = [UIColor blueColor];
         }
         [self setProgress:percentage animated:YES];
     }

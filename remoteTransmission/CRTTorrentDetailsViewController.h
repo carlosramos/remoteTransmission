@@ -10,5 +10,5 @@
 
 @interface CRTTorrentDetailsViewController : UITableViewController
 // TODO: Replace the dictionary with a full-fledged class representing a torrent.
-@property (nonatomic, strong) NSDictionary *torrentDetails;
+@property (nonatomic, strong) NSMutableDictionary *torrentDetails;
 @end

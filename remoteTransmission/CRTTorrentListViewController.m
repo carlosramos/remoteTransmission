@@ -326,7 +326,7 @@
         dvc.delegate = self;
     } else if ([segue.identifier isEqualToString:@"torrentDetails"]) {
         CRTTorrentDetailsViewController *tdvc = segue.destinationViewController;
-        NSDictionary *torrent = self.torrentList[self.tableView.indexPathForSelectedRow.row];
+        NSMutableDictionary *torrent = [self.torrentList[self.tableView.indexPathForSelectedRow.row] mutableCopy];
         tdvc.torrentDetails = torrent;
     }
 }

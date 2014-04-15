@@ -158,6 +158,36 @@ const NSInteger CRTTransmissionControllerErrorMalformedResponse = 3;
     }];
 }
 
+- (void)startTorrent:(NSInteger)torrentID withCompletion:(void (^)(NSError *))callback
+{
+    NSDictionary *request = [self createRequestForMethod:@"torrent-start"
+                                           withArguments:@{@"ids": @(torrentID)}
+                                                     tag:0];
+    [self sendRequest:request callback:^(id data, NSError *error) {
+        if (error) {
+            callback(error);
+            return;
+        }
+        
+        callback(nil);
+    }];
+}
+
+- (void)stopTorrent:(NSInteger)torrentID withCompletion:(void (^)(NSError *))callback
+{
+    NSDictionary *request = [self createRequestForMethod:@"torrent-stop"
+                                           withArguments:@{@"ids": @(torrentID)}
+                                                     tag:0];
+    [self sendRequest:request callback:^(id data, NSError *error) {
+        if (error) {
+            callback(error);
+            return;
+        }
+        
+        callback(nil);
+    }];
+}
+
 
 - (void)sessionStats:(void (^)(NSDictionary *, NSError *))callback
 {
