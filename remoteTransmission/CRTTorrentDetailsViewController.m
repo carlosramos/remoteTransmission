@@ -10,6 +10,7 @@
 #import "UIProgressView+crt_setTorrentProgress.h"
 #import "UIAlertView+crt_ShowError.h"
 #import "CRTTransmissionController.h"
+#import "CRTFileListViewController.h"
 
 const int kStartTorrent = 1;
 const int kStopTorrent = 0;
@@ -79,6 +80,27 @@ const int kStopTorrent = 0;
         }
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"showFiles"]) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+        CRTFileListViewController *flvc = segue.destinationViewController;
+        [[CRTTransmissionController sharedController] getFilesForTorrent:[self.torrentDetails[@"id"] integerValue]
+                                                          withCompletion:^(NSDictionary *files, NSError *error) {
+                                                              dispatch_async(dispatch_get_main_queue(), ^{
+                                                                  if (error) {
+                                                                      [UIAlertView crt_showError:error];
+                                                                      return;
+                                                                  }
+                                                                  
+                                                                  flvc.files = files;
+                                                                  [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                                                                  [flvc updateFileList];
+                                                              });
+                                                          }];
+    }
 }
 
 @end

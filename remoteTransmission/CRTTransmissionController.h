@@ -91,4 +91,6 @@ extern const NSInteger CRTTransmissionControllerErrorMalformedResponse;
 - (void)startTorrent:(NSInteger)torrentID withCompletion:(void (^)(NSError *error))callback;
 
 - (void)stopTorrent:(NSInteger)torrentID withCompletion:(void (^)(NSError *error))callback;
+
+- (void)getFilesForTorrent:(NSInteger)torrentID withCompletion:(void (^)(NSDictionary *files, NSError *error))callback;
 @end

@@ -347,6 +347,41 @@ const NSInteger CRTTransmissionControllerErrorMalformedResponse = 3;
     }];
 }
 
+- (void)getFilesForTorrent:(NSInteger)torrentID withCompletion:(void (^)(NSDictionary *, NSError *))callback
+{
+    NSDictionary *request = [self createRequestForMethod:@"torrent-get"
+                                           withArguments:@{@"ids": @[@(torrentID)],
+                                                           @"fields": @[@"files", @"fileStats"]}
+                                                     tag:0];
+    
+    [self sendRequest:request callback:^(id data, NSError *error) {
+        if (error) {
+            callback(nil, error);
+            return;
+        }
+        
+        NSDictionary *args = data[@"arguments"];
+        NSArray *torrents = args[@"torrents"];
+        // There should be only one torrent
+        if (torrents.count != 1) {
+            callback(nil, [NSError errorWithDomain:CRTTransmissionControllerErrorDomain
+                                              code:CRTTransmissionControllerErrorMalformedResponse
+                                          userInfo:@{NSLocalizedDescriptionKey: @"Unexpected response from server"}]);
+            return;
+        }
+        
+        NSDictionary *torrent = torrents[0];
+        if (!torrent[@"files"] || !torrent[@"fileStats"]) {
+            callback(nil, [NSError errorWithDomain:CRTTransmissionControllerErrorDomain
+                                              code:CRTTransmissionControllerErrorMalformedResponse
+                                          userInfo:@{NSLocalizedDescriptionKey: @"Unexpected response from server"}]);
+            return;
+        }
+        
+        callback(torrent, nil);
+    }];
+}
+
 - (void)isPortOpen:(void (^)(BOOL isPortOpen, NSError *__autoreleasing error))callback
 {
     NSDictionary *request = [self createRequestForMethod:@"port-test" withArguments:nil tag:0];
