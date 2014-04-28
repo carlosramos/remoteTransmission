@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CRTTree.h"
 
 @interface CRTFileListViewController : UITableViewController
 
-@property (nonatomic, copy) NSDictionary *files;
+@property (nonatomic, strong) CRTTree *files;
+@property (nonatomic, weak) CRTNode *currentRootNode;
 
 - (void)updateFileList;
 @end

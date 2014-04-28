@@ -11,6 +11,7 @@
 #import "UIAlertView+crt_ShowError.h"
 #import "CRTTransmissionController.h"
 #import "CRTFileListViewController.h"
+#import "CRTFiles.h"
 
 const int kStartTorrent = 1;
 const int kStopTorrent = 0;
@@ -95,7 +96,8 @@ const int kStopTorrent = 0;
                                                                       return;
                                                                   }
                                                                   
-                                                                  flvc.files = files;
+                                                                  flvc.files = [CRTFiles fileTreeFromTransmissionResponse:files];
+                                                                  flvc.currentRootNode = flvc.files.rootNode;
                                                                   [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
                                                                   [flvc updateFileList];
                                                               });
